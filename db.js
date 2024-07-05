@@ -1,11 +1,10 @@
 //This file is resposible to estabish a connection between the nodejs and mongodb database using Mongoose lib
 const mongoose = require("mongoose");
+require("dotenv").config();
 
 //Define the Mongodb connection URL
-
 // const mongoURL = "mongodb://127.0.0.1:27017/inteventoryManagament";
-const mongoURL =
-  "mongodb+srv://sunainapassi4:Yt1TJHYuKVF4121C@fireworkinventory.gc6o1qy.mongodb.net/";
+const mongoURL = process.env.DB_URL;
 
 //estabish the Mongodb connection
 

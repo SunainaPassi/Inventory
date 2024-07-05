@@ -2,8 +2,9 @@ const express = require("express");
 const router = express.Router();
 
 const Product = require("../model/Product");
+const DefaultBrandList = require("../model/Product");
 
-router.post("/productDetail", async (req, res) => {
+router.post("/createProduct", async (req, res) => {
   try {
     const data = req.body;
     const newProduct = new Product(data);
@@ -21,6 +22,12 @@ router.get("/productList", async (req, res) => {
   } catch (err) {
     res.status(400).json("List Not Found");
   }
+});
+
+router.get("/brandList", (req, res) => {
+  console.log({ DefaultBrandList });
+
+  res.status(200).json(DefaultBrandList);
 });
 
 router.get("/productbyBrandName", async (req, res) => {
